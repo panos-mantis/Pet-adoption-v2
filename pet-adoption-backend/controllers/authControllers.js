@@ -6,7 +6,7 @@ const { validationResult } = require('express-validator');
 // Register a new user
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, isAdmin } = req.body;
 
     //check if all fields are filled
     if (!password || !email || !name) {
@@ -32,7 +32,7 @@ const registerUser = async (req, res) => {
     );
 
     // Create a new user
-    const newUser = await User.create({ name, email, password: hashedPassword  });
+    const newUser = await User.create({ name, email, password: hashedPassword , isAdmin });
 
     res.json({ message: 'User registered successfully', user: newUser , token:token });
   } catch (error) {

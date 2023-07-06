@@ -2,9 +2,11 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User');
 const AuthController = require('../controllers/authControllers');
+const { authenticateToken } = require('../middlewares/authMiddleware');
+
 
 // Get current user
-router.get('/users', AuthController.getCurrentUser);
+router.get('/users', authenticateToken, AuthController.getCurrentUser);
 
 // Register a new user
 router.post('/users/register', AuthController.registerUser);
@@ -19,7 +21,7 @@ router.get('/users/:id', AuthController.getUserById);
 router.put('/users/:id', AuthController.updateUser);
 
 // Delete user by ID
-router.delete('/users/:id', AuthController.deleteUserById);
+router.delete('/users/:id',authenticateToken, AuthController.deleteUserById);
 
 module.exports = router;
 

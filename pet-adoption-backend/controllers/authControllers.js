@@ -28,7 +28,6 @@ const registerUser = async (req, res) => {
         data: email,
       },
       process.env.JWT_SECRET,
-      { expiresIn: 60 * 60 }
     );
 
     // Create a new user
@@ -67,7 +66,7 @@ const loginUser = async(req,res)=>{
       //create a token
       const token = jwt.sign({
         data: email
-      }, process.env.JWT_SECRET, { expiresIn: 60 * 60 });
+      }, process.env.JWT_SECRET,);
       res.status(200).json({message:"Signed in successfully" , token:token})
     }
     ;

@@ -9,9 +9,8 @@ const authenticateToken = (req, res, next) => {
     return res.status(401).json({ message: 'No token, authorization denied' });
   }
 
-  token = token.split(' ')[1]; // Remove the "Bearer " prefix
-
   try {
+    token = token.split(' ')[1]; // Remove the "Bearer " prefix
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded.userId;
     next();
@@ -21,11 +20,13 @@ const authenticateToken = (req, res, next) => {
   }
 };
 // Middleware to check if the user is an admin
-const authorizeAdmin = (req, res, next) => {
-  const token = req.header('Authorization');
+const authorizeAdmin = async(req, res, next) => {
+  let token = req.header('Authorization');
+  token = token.split(' ')[1]; // Remove the "Bearer " prefix
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
-  console.log(decoded)
-  if (req.user.isAdmin){
+  const authorizedUser = await User.findOne({email:decoded.data})
+  console.log(authorizedUser)
+  if (authorizedUser.isAdmin){
     next()
   } else  {
     res.status(403).json({ error: 'Access denied. Only admins are allowed.' });

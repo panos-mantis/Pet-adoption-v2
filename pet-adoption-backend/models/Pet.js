@@ -15,7 +15,8 @@ const petSchema = new mongoose.Schema({
   },
    image: {
     type: String
-  }
+  },
+
 });
 
 const Pet = mongoose.model('Pet', petSchema);

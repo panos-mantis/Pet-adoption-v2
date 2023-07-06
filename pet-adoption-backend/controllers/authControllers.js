@@ -6,7 +6,7 @@ const { validationResult } = require('express-validator');
 // Register a new user
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password } = req.body;
+    const { name, email, password, isAdmin } = req.body;
 
     //check if all fields are filled
     if (!password || !email || !name) {
@@ -28,11 +28,10 @@ const registerUser = async (req, res) => {
         data: email,
       },
       process.env.JWT_SECRET,
-      { expiresIn: 60 * 60 }
     );
 
     // Create a new user
-    const newUser = await User.create({ name, email, password: hashedPassword  });
+    const newUser = await User.create({ name, email, password: hashedPassword , isAdmin });
 
     res.json({ message: 'User registered successfully', user: newUser , token:token });
   } catch (error) {
@@ -67,7 +66,7 @@ const loginUser = async(req,res)=>{
       //create a token
       const token = jwt.sign({
         data: email
-      }, process.env.JWT_SECRET, { expiresIn: 60 * 60 });
+      }, process.env.JWT_SECRET,);
       res.status(200).json({message:"Signed in successfully" , token:token})
     }
     ;

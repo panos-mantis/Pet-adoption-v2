@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
+import './styles/App.css'
 
 import Home from './components/Home';
 import Navbar from './components/Navbar';
@@ -36,7 +37,7 @@ function App() {
           <Route path="/PetDetails/:id" element={<PetDetails />} />
       </Routes>  
       </Container>
-      <Footer />  
+      <Footer className="footer" />  
     </div>
     </Router>
   );

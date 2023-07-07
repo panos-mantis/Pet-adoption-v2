@@ -8,6 +8,8 @@ import Adopt from './components/Adopt';
 import Register from './components/Register';
 import LogIn from './components/LogIn';
 import Pets from './components/Pets';
+import PetDetails from './components/PetDetails';
+
 
 
 
@@ -28,6 +30,8 @@ function App() {
           <Route path="/Register" element={<Register/>} />
           <Route path="/login" element={<LogIn/>} />
           <Route path="/Pets" element={<Pets/>} />
+          <Route path="/PetDetails" element={<PetDetails/>} />
+
       </Routes>  
       </Container>
       <Footer />  

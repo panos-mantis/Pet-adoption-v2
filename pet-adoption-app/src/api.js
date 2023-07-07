@@ -9,35 +9,29 @@ axios.defaults.baseURL = "http://localhost:4000/api";
 
 //Users 
 //Send a post request to /users/register 
- export const registerUser = async(e ,{ name, email, password})=>{
-
-    //prevents page from refreshing
-    e.preventDefault()
-
+ export const registerUser = async(userData)=>{
     //send request
     try{
-        const response = await axios.post(axios.defaults.baseURL+"/users/register",{name:name, email:email, password:password})
+        const response = await axios.post("/users/register",userData)
         console.log(response)
     }catch(error){
         console.log(error)
+        throw error.response.data;
     }
 }
 
- export const logInUser = async(event ,{ name, email, password, isAdmin })=>{
-
-    //prevents page from refreshing
-    event.preventDefault()
-
+ export const loginUser = async(userData)=>{
     //send request
     try{
-        const response = await axios.post(axios.defaults.baseURL+"/users/register",{name, email, password, isAdmin})
+        const response = await axios.post("/users/login", userData)
         console.log(response)
     }catch(error){
         console.log(error)
+        throw error.response.data;
     }
 }
 
-registerUser()
+
 
 
 

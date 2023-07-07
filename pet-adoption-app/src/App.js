@@ -9,6 +9,7 @@ import Register from './components/Register';
 import LogIn from './components/LogIn';
 import Pets from './components/Pets';
 import PetDetails from './components/PetDetails';
+import Species from './components/Species';
 
 
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/login" element={<LogIn/>} />
           <Route path="/Pets" element={<Pets/>} />
           <Route path="/PetDetails" element={<PetDetails/>} />
+          <Route path="/Species" element={<Species/>} />
 
       </Routes>  
       </Container>

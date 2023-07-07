@@ -1,32 +1,33 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
-      <a className="navbar-brand" href="#">Test</a>
+      <Link className="navbar-brand" to="/">Test</Link>
       <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span className="navbar-toggler-icon"></span>
       </button>
       <div className="collapse navbar-collapse" id="navbarNavDropdown">
         <ul className="navbar-nav">
           <li className="nav-item active">
-            <a className="nav-link" href="#">Home <span className="sr-only"></span></a>
+            <Link  className="nav-link" to="/">Home <span className="sr-only"></span></Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Pets</a>
+            <Link className="nav-link" to="/pets">Pets</Link>
           </li>
           <li className="nav-item">
-            <a className="nav-link" href="#">Adopt</a>
+            <Link className="nav-link" to="/Adopt">Adopt</Link>
           </li>
           <li className="nav-item dropdown">
-            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <Link className="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Species
-            </a>
-            <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a className="dropdown-item" href="#">Cats</a>
-              <a className="dropdown-item" href="#">Dogs</a>
-              <a className="dropdown-item" href="#">Kittens</a>
-            </div>
+            </Link>
+            <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><Link className="dropdown-item" to="/Pets/species/cats">Cats</Link></li>
+              <li><Link className="dropdown-item" to="/Pets/species/dogs">Dogs</Link></li>
+              <li><Link className="dropdown-item" to="/Pets/species/kittens">Kittens</Link></li>
+            </ul>
           </li>
         </ul>
       </div>

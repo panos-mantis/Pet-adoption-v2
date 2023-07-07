@@ -24,7 +24,7 @@ function App() {
           <Route path="/Adopt" element={<Adopt />} />
           <Route path="/*" element={<Navigate to="/" />} />
           <Route path="/Register" element={<Register/>} />
-          <Route path="/login" element={<LogIn/>} />
+          <Route path="/Login" element={<LogIn/>} />
       </Routes>  
       </Container>
       <Footer />  

@@ -4,7 +4,7 @@ const app = express();
 require('dotenv').config();
 const usersRoutes = require('./routes/users');
 const petsRoutes = require('./routes/pets');
-
+const cors = require('cors');
 
 
 mongoose.connect(process.env.MONGODB_URI, {
@@ -17,6 +17,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 // routes and middleware here
 // Middleware
 app.use(express.json());
+app.use(cors());
 
 // Routes
 app.use('/api', usersRoutes);

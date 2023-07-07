@@ -23,9 +23,13 @@ const authenticateToken = (req, res, next) => {
 const authorizeAdmin = async(req, res, next) => {
   let token = req.header('Authorization');
   token = token.split(' ')[1]; // Remove the "Bearer " prefix
+
+  //decode and get the email from the token
   const decoded = jwt.verify(token, process.env.JWT_SECRET);
+
+  //find the user withe the following email
   const authorizedUser = await User.findOne({email:decoded.data})
-  console.log(authorizedUser)
+  
   if (authorizedUser.isAdmin){
     next()
   } else  {

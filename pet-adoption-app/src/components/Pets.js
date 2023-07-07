@@ -33,7 +33,7 @@ const Pets = () => {
       <div className="card-body">
         <h5 className="card-title">{pet.name}</h5>
         <p className="card-text">{pet.description}</p>
-        <Link to={`/PetsDetails/${pet._id}`} className="btn btn-primary">
+        <Link to={`/PetDetails/${pet._id}`} className="btn btn-primary">
           View Details
         </Link>
       </div>

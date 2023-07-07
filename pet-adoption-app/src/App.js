@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Adopt from './components/Adopt';
+import Register from './components/Register';
 
 
 
@@ -21,6 +22,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Adopt" element={<Adopt />} />
           <Route path="/*" element={<Navigate to="/" />} />
+          <Route path="/Register" element={<Register/>} />
       </Routes>  
       </Container>
       <Footer />  

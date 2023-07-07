@@ -1,7 +1,7 @@
 import React from "react";
 import { getPetsBySpecies , getAllPets} from "../api";
 import { useEffect, useState } from "react";
-import { useParams , useNavigate } from "react-router-dom";
+import { useParams , useNavigate ,Link} from "react-router-dom";
 
 
 const Species = () => {
@@ -61,6 +61,9 @@ const fetchAllPets = async () => {
               <div className="card-body">
                 <p className="card-title">Species: {pet.species}</p>
                 <p className="card-text">Age: {pet.age}</p>
+                <Link to={`/PetDetails/${pet._id}`} className="btn btn-primary">
+                View Details
+                </Link>
               </div>
               
             </div>

@@ -24,9 +24,9 @@ const Navbar = () => {
               Species
             </Link>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><Link className="dropdown-item" to="/Pets/species/cats">Cats</Link></li>
-              <li><Link className="dropdown-item" to="/Pets/species/dogs">Dogs</Link></li>
-              <li><Link className="dropdown-item" to="/Pets/species/kittens">Kittens</Link></li>
+              <li><Link className="dropdown-item" to="Species/cat">Cats</Link></li>
+              <li><Link className="dropdown-item" to="Species/dog">Dogs</Link></li>
+              <li><Link className="dropdown-item" to="Species/kitten">Kittens</Link></li>
             </ul>
           </li>
         </ul>

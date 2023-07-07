@@ -7,6 +7,8 @@ import Footer from './components/Footer';
 import Adopt from './components/Adopt';
 import Register from './components/Register';
 import LogIn from './components/LogIn';
+import Pets from './components/Pets';
+
 
 
 
@@ -24,7 +26,8 @@ function App() {
           <Route path="/Adopt" element={<Adopt />} />
           <Route path="/*" element={<Navigate to="/" />} />
           <Route path="/Register" element={<Register/>} />
-          <Route path="/Login" element={<LogIn/>} />
+          <Route path="/login" element={<LogIn/>} />
+          <Route path="/Pets" element={<Pets/>} />
       </Routes>  
       </Container>
       <Footer />  

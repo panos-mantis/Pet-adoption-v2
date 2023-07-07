@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Adopt from './components/Adopt';
 import Register from './components/Register';
+import LogIn from './components/LogIn';
 
 
 
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Adopt" element={<Adopt />} />
           <Route path="/*" element={<Navigate to="/" />} />
           <Route path="/Register" element={<Register/>} />
+          <Route path="/login" element={<LogIn/>} />
       </Routes>  
       </Container>
       <Footer />  

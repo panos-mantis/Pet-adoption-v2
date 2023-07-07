@@ -1,18 +1,39 @@
 import React from "react";
-import { getPetsBySpecies } from "../api";
+import { getPetsBySpecies , getAllPets} from "../api";
 import { useEffect, useState } from "react";
 import { useParams , useNavigate } from "react-router-dom";
 
 
 const Species = () => {
   const [pets, setPets] = useState([]);
+
+  const [btnPets, setBtnPets] = useState([])
+
   const { species } = useParams();
   const navigate = useNavigate()
   
   
   useEffect(() => {
+    
+    fetchAllPets();
     fetchPets();
   }, [species]);
+
+const fetchAllPets = async () => {
+    try {
+      const response = await getAllPets();
+      console.log(response.pets)
+      setBtnPets( response.pets) 
+      
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getUniqueSpecies = () => {
+    const speciesSet = new Set(btnPets.map((pet) => pet.species));
+    return Array.from(speciesSet);
+  };
 
   const fetchPets = async () => {
     try {
@@ -25,11 +46,14 @@ const Species = () => {
     }
   };
   return (
-    <>
-      <button className="mx-auto" onClick={()=>navigate("/Species/dog")}>Get all the dogs</button>
-      <button className="mx-auto"onClick={()=>navigate("/Species/cat")}>Get all the cats</button>
-      <button className="mx-auto"onClick={()=>navigate("/Species/kitten")}>Get all the kittens</button>
-      <ul className="container text-center">
+    <div className="container text-center">
+        <div >
+        {getUniqueSpecies().map((uniqueSpecies) => (
+        <button key={uniqueSpecies} className="mx-3 btn btn-primary" onClick={()=>navigate(`/Species/${uniqueSpecies}`)}>Get all the {uniqueSpecies}</button>
+      ))}
+        </div>
+      
+      <ul className="card-deck">
         {pets.map((pet) => (
             <div className="card" key={pet._id}>
               <h2>{pet.name}</h2>
@@ -42,7 +66,7 @@ const Species = () => {
             </div>
         ))}
       </ul>
-    </>
+    </div>
   );
 };
 

@@ -7,17 +7,18 @@ const PetDetails = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetchPet();
-  }, []);
-
   const fetchPet = async () => {
     try {
       const response = await getPetById(id);
-      setPet(response);
+      setPet(response.pet);
     } catch (error) {
       console.log(error);
     }
   };
+
+  fetchPet();
+}, [id]); // Adding the id to the dependency array
+
 
   return (
     <div>
@@ -25,7 +26,8 @@ const PetDetails = () => {
         <div>
           <h2>{pet.name}</h2>
           <img src={pet.image} alt={pet.name} />
-          <p>{pet.description}</p>
+          <p>Species: {pet.species}</p>
+          <p>Age: {pet.age}</p>
         </div>
       ) : (
         <p>Loading pet details...</p>

@@ -11,6 +11,7 @@ import Adopt from './components/Adopt';
 
 
 function App() {
+  
   return (
     <Router>
     <div className="App">

@@ -32,6 +32,7 @@ function App() {
           <Route path="/login" element={<LogIn/>} />
           <Route path="/Pets" element={<Pets/>} />
           <Route path="/Species" element={<Species/>} />
+          <Route path="/Species/:species" element={<Species/>} />
           <Route path="/PetDetails/:id" element={<PetDetails />} />
       </Routes>  
       </Container>

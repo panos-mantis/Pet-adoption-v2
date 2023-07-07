@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAllPets } from '../api';
 import { Link } from 'react-router-dom';
+import { FaAngleUp } from 'react-icons/fa';
 
 
 const Pets = () => {
@@ -50,6 +51,9 @@ const Pets = () => {
           <div className="card-deck">{renderPetCards(species)}</div>
         </section>
       ))}
+      <div className="top-to-btm">
+            <FaAngleUp className="icon-position icon-style" />
+      </div>
     </div>
   );
 };

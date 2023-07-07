@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
+import { getAllPets } from '../api';
 
 const Navbar = () => {
+  const [pets,setPets] = useState([])
+  useEffect(() => {
+    fetchPets();
+  }, []);
+
+  const fetchPets = async () => {
+    try {
+      const response = await getAllPets();
+      const { pets } = response; 
+      setPets(pets);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getUniqueSpecies = () => {
+    const speciesSet = new Set(pets.map((pet) => pet.species));
+    return Array.from(speciesSet);
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <Link className="navbar-brand" to="/">Test</Link>
@@ -24,9 +46,9 @@ const Navbar = () => {
               Species
             </Link>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <li><Link className="dropdown-item" to="Species/cat">Cats</Link></li>
-              <li><Link className="dropdown-item" to="Species/dog">Dogs</Link></li>
-              <li><Link className="dropdown-item" to="Species/kitten">Kittens</Link></li>
+            {getUniqueSpecies().map((uniqueSpecies) => (
+            <li key={uniqueSpecies+"dropdown"}><Link  className="dropdown-item" to={`Species/${uniqueSpecies}`}>{uniqueSpecies}</Link></li>
+            ))}
             </ul>
           </li>
         </ul>

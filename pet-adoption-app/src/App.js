@@ -9,6 +9,7 @@ import Register from './components/Register';
 import LogIn from './components/LogIn';
 import Pets from './components/Pets';
 import PetDetails from './components/PetDetails';
+import Species from './components/Species';
 
 
 
@@ -30,6 +31,7 @@ function App() {
           <Route path="/Register" element={<Register/>} />
           <Route path="/login" element={<LogIn/>} />
           <Route path="/Pets" element={<Pets/>} />
+          <Route path="/Species" element={<Species/>} />
           <Route path="/PetDetails/:id" element={<PetDetails />} />
       </Routes>  
       </Container>

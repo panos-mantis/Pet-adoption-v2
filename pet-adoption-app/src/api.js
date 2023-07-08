@@ -23,7 +23,9 @@ axios.defaults.baseURL = "http://localhost:4000/api";
  export const loginUser = async(userData)=>{
     //send request
     try{
-        const response = await axios.post("/users/login", userData)
+        const response = await axios.post("/users/login", userData);
+        const { token } = response.data;
+        localStorage.setItem("token", token); // Save the token in local storage
         console.log(response)
     }catch(error){
         console.log(error)
@@ -113,7 +115,29 @@ export const getPetsBySpecies = async (species) => {
   }
 };
 
+// Get the current user
+export const getCurrentUser = async () => {
+  try {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      throw new Error('No token found');
+    }
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    const response = await axios.get('/users', config);
+    return response.data.user;
+  } catch (error) {
+    console.log(error);
+    throw error.response.data;
+  }
+};
 
-
+// Function for logging out the user
+export const logout = () => {
+  localStorage.removeItem('token'); // Remove the token from localStorage
+};
 
 

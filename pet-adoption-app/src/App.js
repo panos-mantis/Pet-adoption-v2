@@ -11,6 +11,7 @@ import LogIn from './components/LogIn';
 import Pets from './components/Pets';
 import PetDetails from './components/PetDetails';
 import Species from './components/Species';
+import ManagePets from './components/ManagePets';
 
 
 
@@ -35,6 +36,7 @@ function App() {
           <Route path="/Species" element={<Species/>} />
           <Route path="/Species/:species" element={<Species/>} />
           <Route path="/PetDetails/:id" element={<PetDetails />} />
+          <Route path="/admin/pets" element={<ManagePets />} />
       </Routes>  
       </Container>
       <Footer className="footer" />  

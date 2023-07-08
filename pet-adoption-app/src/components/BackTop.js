@@ -3,13 +3,14 @@ import { FaAngleUp } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 
+
 const BackTop = () => {
     
     const [showBtn , setShowBtn]= useState(false)
 
     useEffect(()=>{
         window.addEventListener("scroll",()=>{
-            if(window.scrollY>100){
+            if(window.scrollY>300){
                 setShowBtn(true)
             }else{
                 setShowBtn(true)
@@ -19,7 +20,7 @@ const BackTop = () => {
 
     const handleScrollTop =()=>{
         window.scrollTo({top:0, behavior:"smooth"})
-         
+         setShowBtn(false)
     }
 
     return (

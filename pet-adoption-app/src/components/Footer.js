@@ -1,7 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebook, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-
+import '../styles/Footer.css'
 
 
 const Footer = () => {
@@ -29,9 +29,9 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col-lg-6 text-lg-right">
-            <span className="text-muted">About Us</span>
+            <span className="text-muted">AboutUs</span>
             <span className="mx-2 text-muted">|</span>
-            <span className="text-muted">Contact Us</span>
+            <span className="text-muted">ContactUs</span>
           </div>
         </div>
       </div>

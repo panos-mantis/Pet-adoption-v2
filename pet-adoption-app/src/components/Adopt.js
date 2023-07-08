@@ -1,5 +1,6 @@
 import React from 'react';
 import BackTop from './BackTop';
+import '../styles/Adopt.css'
 
 const Adopt = () => {
   return (

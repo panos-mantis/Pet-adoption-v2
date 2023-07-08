@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { getAllPets } from "../api";
 import "../styles/Home.css";
 import BackTop from "./BackTop";
+import VideoBackground from "../videos/Video-background.mp4";
 
 function Home() {
   const [randomPets, setSelectedPets] = useState([]);
@@ -34,7 +35,10 @@ function Home() {
 
   return (
     <div className="container">
-      <h2 className="mt-4">Random Pets</h2>
+      <video className="video-background" autoPlay loop muted>
+        <source src={VideoBackground} type="video/mp4" />
+      </video>
+      <h2 className="mt-4">Find your match</h2>
       <div className="card-deck">
         {randomPets.map((pet) => (
           <div className="card" key={pet._id}>

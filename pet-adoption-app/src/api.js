@@ -115,6 +115,8 @@ export const getPetsBySpecies = async (species) => {
   }
 };
 
+
+
 // Get the current user
 export const getCurrentUser = async () => {
   try {
@@ -134,6 +136,7 @@ export const getCurrentUser = async () => {
     throw error.response.data;
   }
 };
+
 
 // Function for logging out the user
 export const logout = () => {

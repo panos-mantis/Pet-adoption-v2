@@ -1,4 +1,5 @@
 import React from 'react';
+import BackTop from './BackTop';
 
 const Adopt = () => {
   return (
@@ -26,6 +27,7 @@ const Adopt = () => {
           <img src="https://images.pexels.com/photos/16652378/pexels-photo-16652378/free-photo-of-animaux-chiens-animaux-de-compagnie-bandana.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Adopt a Pet" className="img-fluid" />
         </div>
       </div>
+      <BackTop/>
     </div>
   );
 };

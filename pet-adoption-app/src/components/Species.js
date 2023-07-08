@@ -2,6 +2,7 @@ import React from "react";
 import { getPetsBySpecies , getAllPets} from "../api";
 import { useEffect, useState } from "react";
 import { useParams , useNavigate ,Link} from "react-router-dom";
+import BackToTop from "./BackTop";
 
 
 const Species = () => {
@@ -69,6 +70,7 @@ const fetchAllPets = async () => {
             </div>
         ))}
       </ul>
+      <BackToTop/>
     </div>
   );
 };

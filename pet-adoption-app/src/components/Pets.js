@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { getAllPets } from '../api';
 import { Link } from 'react-router-dom';
+import BackTop from './BackTop';
 
 
 const Pets = () => {
@@ -50,6 +51,7 @@ const Pets = () => {
           <div className="card-deck">{renderPetCards(species)}</div>
         </section>
       ))}
+      <BackTop/>
     </div>
   );
 };

@@ -6,6 +6,7 @@ const Profile = () => {
   const [userObj, setUserObj] = useState({});
 
   useEffect(() => {
+    
     try{
         const getUserData = async () => {
         const userData = await getCurrentUser();
@@ -13,7 +14,7 @@ const Profile = () => {
       };
       getUserData();
     }catch(error){
-      
+      setUserObj({})
     }
     
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -21,13 +22,21 @@ const Profile = () => {
 
   return (
     <div className="card ">
-        <div className="card-header fw-bolder">
+      {userObj.email ? (<><div className="card-header fw-bolder">
           <span>name: {userObj.name}</span> 
         </div>
         <div className="card-body">
         <p className="card-text"><span>email: {userObj.email} </span></p>
         <FaDog className="mx-auto"/>
-    </div>
+    </div></>)
+    :( <><div className="card-header fw-bolder">
+          <span>Please log in</span> 
+        </div>
+        <div className="card-body">
+        <p className="card-text">In order to see your profile please LogIn</p>
+        <FaDog className="mx-auto"/>
+    </div></>)}
+        
   </div>
   );
 };

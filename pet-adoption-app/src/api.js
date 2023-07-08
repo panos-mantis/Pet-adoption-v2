@@ -113,6 +113,16 @@ export const getPetsBySpecies = async (species) => {
   }
 };
 
+export const getUserById = async (req,res)=>{
+
+  try{
+
+  }catch(error){
+    console.log(error)
+    throw error.response.data;
+  }
+}
+
 
 
 

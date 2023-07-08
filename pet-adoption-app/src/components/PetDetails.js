@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { getPetById } from '../api';
+import BackTop from './BackTop';
 
 const PetDetails = () => {
   const [pet, setPet] = useState(null);
@@ -32,6 +33,7 @@ const PetDetails = () => {
       ) : (
         <p>Loading pet details...</p>
       )}
+      <BackTop/>
     </div>
   );
 };

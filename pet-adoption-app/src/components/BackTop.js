@@ -3,7 +3,7 @@ import { FaAngleUp } from 'react-icons/fa';
 import { useState, useEffect } from 'react';
 
 
-const BackToTop = () => {
+const BackTop = () => {
     
     const [showBtn , setShowBtn]= useState(false)
 
@@ -18,8 +18,8 @@ const BackToTop = () => {
     })
 
     const handleScrollTop =()=>{
-        
-        window.scrollTo({top:0, behavior:"smooth"}) 
+        window.scrollTo({top:0, behavior:"smooth"})
+         
     }
 
     return (
@@ -33,4 +33,4 @@ const BackToTop = () => {
        
     );
 };
-export default BackToTop;
+export default BackTop;

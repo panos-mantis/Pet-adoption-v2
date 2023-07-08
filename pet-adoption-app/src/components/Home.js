@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getAllPets } from "../api";
-import { FaAngleUp } from "react-icons/fa";
 import "../styles/Home.css";
+import BackTop from "./BackTop";
 
 function Home() {
   const [randomPets, setSelectedPets] = useState([]);
-  const [showTopBtn, setShowTopBtn] = useState(false);
-
+  
   useEffect(() => {
     const fetchRandomPets = async () => {
       try {
@@ -23,14 +22,7 @@ function Home() {
     };
 
     fetchRandomPets();
-
-    window.addEventListener("scroll", () => {
-      if (window.scrollY > 100) {
-        setShowTopBtn(true);
-      } else {
-        setShowTopBtn(false);
-      }
-    });
+    
   }, []);
 
   const getRandomIndices = (max, count) => {
@@ -39,11 +31,6 @@ function Home() {
     return shuffledIndices.slice(0, count);
   };
 
- 
-
-  const handleScrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   return (
     <div className="container">
@@ -84,11 +71,7 @@ function Home() {
           consequat. Aenean sed metus ut est vulputate iaculis.
         </p>
       </div>
-      {showTopBtn && (
-        <button className="top-to-btm" onClick={handleScrollToTop}>
-          <FaAngleUp className="icon-position icon-style" />
-        </button>
-      )}
+      <BackTop/>
     </div>
   );
 }

@@ -12,6 +12,7 @@ import Pets from './components/Pets';
 import PetDetails from './components/PetDetails';
 import Species from './components/Species';
 import ManagePets from './components/ManagePets';
+import Profile from './components/Profile';
 
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path="/*" element={<Navigate to="/" />} />
           <Route path="/Register" element={<Register/>} />
           <Route path="/login" element={<LogIn/>} />
+          <Route path="/Profile" element={<Profile/>} />
           <Route path="/Pets" element={<Pets/>} />
           <Route path="/Species" element={<Species/>} />
           <Route path="/Species/:species" element={<Species/>} />

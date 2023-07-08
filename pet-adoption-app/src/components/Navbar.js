@@ -2,10 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getAllPets } from '../api';
+import ProfileButton from './ProfileButton';
 
 const Navbar = () => {
   const [pets,setPets] = useState([])
+  
   useEffect(() => {
+
     fetchPets();
   }, []);
 
@@ -53,9 +56,7 @@ const Navbar = () => {
           </li>
         </ul>
       </div>
-      <div className="ml-auto">
-        <a className="btn btn-primary" href="/login">Login</a>
-      </div>
+      <ProfileButton/>
     </nav>
   );
 };

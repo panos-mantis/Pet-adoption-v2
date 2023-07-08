@@ -52,7 +52,6 @@ export const createPet = async (petData, token) => {
 export const getAllPets = async () => {
   try {
     const response = await axios.get("/pets");
-    console.log(response);
     return response.data;
   } catch (error) {
     console.log(error);
@@ -130,7 +129,9 @@ export const getCurrentUser = async () => {
       },
     };
     const response = await axios.get('/users', config);
+    
     return response.data.user;
+    
   } catch (error) {
     console.log(error);
     throw error.response.data;

@@ -102,7 +102,7 @@ const ManagePets = () => {
         <ul className="list-group list-group-flush">
           {pets.map((pet) => (
             <li key={pet._id} className="mb-3 list-group-item">
-              <Link className='text-decoration-none focus-ring' to={`/admin/pets/${pet._id}`}>{pet.name}</Link>
+              <Link className='text-decoration-none focus-ring' to={`/PetDetails/${pet._id}`}>{pet.name}</Link>
               <button className="btn btn-danger ms-2  " onClick={() => handleDeletePet(pet._id)}>Delete</button>
               <button className="btn btn-warning ms-2   " onClick={() => handleUpdatePet(pet._id, newPet )}>Update</button>
               <br></br>

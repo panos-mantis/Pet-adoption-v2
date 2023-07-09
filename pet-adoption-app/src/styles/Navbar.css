@@ -1,0 +1,19 @@
+.navbar {
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.nav-link {
+    color: #730068;
+    
+}
+
+.nav-link:hover {
+    color: #333;
+}
+
+
+.profile-button {
+    margin-left: auto;
+    margin-right: 10px;
+}

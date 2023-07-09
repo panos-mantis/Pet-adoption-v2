@@ -38,3 +38,11 @@
     object-fit: cover;
     z-index: -1;
 }
+
+.btn-primary{
+   background-color:#434982
+}
+.btn-primary:hover{
+   background-color:#01D28E
+}
+

@@ -8,18 +8,19 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 40px;
 }
 
 .card {
     width: 300px;
-    margin: 10px;
+    margin: 20px;
 }
 
 .mission-section {
     margin-top: 30px;
     text-align: center;
     font-size: 24px;
-        font-weight: 400;
+    font-weight: 400;
 }
 
 .lead {
@@ -39,10 +40,12 @@
     z-index: -1;
 }
 
+
 .btn-primary{
    background-color:#434982
 }
 .btn-primary:hover{
    background-color:#01D28E
 }
+
 

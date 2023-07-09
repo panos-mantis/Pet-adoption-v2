@@ -38,11 +38,11 @@ const LogIn = () => {
 
   return (
     <main className="container">
-      <h1 className="mt-4">Log In</h1>
+      <h1 className="mt-4">Login</h1>
       <form onSubmit={handleLogin}>
         <div className="mb-3">
           <label htmlFor="email" className="form-label">
-            Email
+            Email:
           </label>
           <input
             type="email"
@@ -55,7 +55,7 @@ const LogIn = () => {
         </div>
         <div className="mb-3">
           <label htmlFor="password" className="form-label">
-            Password
+            Password:
           </label>
           <input
             type="password"

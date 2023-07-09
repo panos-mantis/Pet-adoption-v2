@@ -22,6 +22,7 @@ const Navbar = () => {
     }
   };
 
+  // Great job Panagiotis 
   const getUniqueSpecies = () => {
     const speciesSet = new Set(pets.map((pet) => pet.species));
     return Array.from(speciesSet);

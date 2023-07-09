@@ -6,6 +6,7 @@ import BackTop from './BackTop';
 
 const Pets = () => {
   const [pets, setPets] = useState([]);
+  const myImageStyle = {  height: '300px', objectFit:"cover" };
 
   useEffect(() => {
     fetchPets();
@@ -30,7 +31,7 @@ const Pets = () => {
   const filteredPets = pets.filter((pet) => pet.species === species);
   return filteredPets.slice(0, 4).map((pet) => (
     <div className="card" key={pet._id}>
-      <img src={pet.image} className="card-img-top" alt={pet.name} />
+      <img src={pet.image} className="card-img-top" alt={pet.name} style={myImageStyle}/>
       <div className="card-body">
         <h5 className="card-title">{pet.name}</h5>
         <p className="card-text">{pet.description}</p>

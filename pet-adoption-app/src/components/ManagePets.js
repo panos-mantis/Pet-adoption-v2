@@ -19,6 +19,7 @@ const ManagePets = () => {
     try {
       const response = await getAllPets();
       setPets(response.pets);
+      console.log(response.pets)
     } catch (error) {
       console.log(error);
     }
@@ -26,6 +27,8 @@ const ManagePets = () => {
 
   const handleInputChange = (e) => {
     setNewPet({ ...newPet, [e.target.name]: e.target.value });
+    console.log(newPet)
+    console.log(e.target.value)
   };
 
   const handleAddPet = async () => {
@@ -65,10 +68,12 @@ const ManagePets = () => {
   };
 
   return (
-    <div className="container">
-      <h2>Manage Pets</h2>
+    <div className="container-lg ">
+      <div className='row column-gap-5'>
+      <div className='col-4 '>
+      <h2 className='text-center'>Manage Pets</h2>
       <div>
-        <h3>Add New Pet</h3>
+        <h3 className='text-center'>Add New Pet</h3>
         <div className="mb-3">
           <label className="form-label">Name:</label>
           <input type="text" className="form-control" name="name" value={newPet.name} onChange={handleInputChange} />
@@ -87,18 +92,27 @@ const ManagePets = () => {
         </div>
         <button className="btn btn-primary" onClick={handleAddPet}>Add Pet</button>
       </div>
-      <div>
+      
+      </div>
+
+
+
+      <div className='col-6 ms-5'>
         <h3>Existing Pets</h3>
-        <ul>
+        <ul className="list-group list-group-flush">
           {pets.map((pet) => (
-            <li key={pet._id} className="mb-3">
-              <Link to={`/admin/pets/${pet._id}`}>{pet.name}</Link>
-              <button className="btn btn-danger ms-2" onClick={() => handleDeletePet(pet._id)}>Delete</button>
-              <button className="btn btn-warning" onClick={() => handleUpdatePet(pet._id, { name: 'Updated Name' })}>Update</button>
+            <li key={pet._id} className="mb-3 list-group-item">
+              <Link className='text-decoration-none focus-ring' to={`/admin/pets/${pet._id}`}>{pet.name}</Link>
+              <button className="btn btn-danger ms-2  " onClick={() => handleDeletePet(pet._id)}>Delete</button>
+              <button className="btn btn-warning ms-2   " onClick={() => handleUpdatePet(pet._id, newPet )}>Update</button>
+              <br></br>
+              <p className='fs-6'>{pet.species}</p>
             </li>
           ))}
         </ul>
       </div>
+      </div>      
+
     </div>
   );
 };

@@ -7,11 +7,10 @@ import BackToTop from "./BackTop";
 
 const Species = () => {
   const [pets, setPets] = useState([]);
-
   const [btnPets, setBtnPets] = useState([])
-
   const { species } = useParams();
   const navigate = useNavigate()
+  const myImageStyle = {  height: '300px', objectFit:"cover" };
   
   
   useEffect(() => {
@@ -58,7 +57,7 @@ const fetchAllPets = async () => {
         {pets.map((pet) => (
             <div className="card" key={pet._id}>
               <h2>{pet.name}</h2>
-              <img src={pet.image} className="card-img-top" alt={pet.name}/>
+              <img src={pet.image} className="card-img-top" alt={pet.name} style={myImageStyle}/>
               <div className="card-body">
                 <p className="card-title">Species: {pet.species}</p>
                 <p className="card-text">Age: {pet.age}</p>

@@ -48,7 +48,7 @@ const Pets = () => {
     <div>
       {getUniqueSpecies().map((species) => (
         <section key={species}>
-          <h2>{species}</h2>
+          <h2 className='text-center fs-1'>{species}</h2>
           <div className="card-deck">{renderPetCards(species)}</div>
         </section>
       ))}

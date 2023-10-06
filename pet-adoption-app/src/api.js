@@ -4,7 +4,7 @@ import axios from "axios"
 
 //All the requests happen at /api
 
-axios.defaults.baseURL = "https://pet-adoption-backend-ozox.onrender.com/";
+axios.defaults.baseURL = "https://pet-adoption-backend-ozox.onrender.com";
 /* axios.defaults.baseURL = "http://localhost:4000/api"; */
 
 

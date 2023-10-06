@@ -4,7 +4,8 @@ import axios from "axios"
 
 //All the requests happen at /api
 
-axios.defaults.baseURL = "https://pet-adoption-backend-ozox.onrender.com";
+axios.defaults.baseURL = "https://pet-adoption-backend-ozox.onrender.com/api";
+/* axios.defaults.baseURL = "http://localhost:4000/api"; */
 
 
 
@@ -25,6 +26,7 @@ axios.defaults.baseURL = "https://pet-adoption-backend-ozox.onrender.com";
     //send request
     try{
         const response = await axios.post("/users/login", userData);
+        console.log(axios.defaults.baseURL)
         const { token } = response.data;
         localStorage.setItem("token", token); // Save the token in local storage
         console.log(response)
@@ -52,7 +54,7 @@ export const createPet = async (petData, token) => {
 // Get all pets
 export const getAllPets = async () => {
   try {
-    const response = await axios.get("https://pet-adoption-backend-ozox.onrender.com/api/pets");
+    const response = await axios.get("/pets");
     return response.data;
   } catch (error) {
     console.log(error);

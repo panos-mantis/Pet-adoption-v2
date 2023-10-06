@@ -52,7 +52,7 @@ export const createPet = async (petData, token) => {
 // Get all pets
 export const getAllPets = async () => {
   try {
-    const response = await axios.get("/pets");
+    const response = await axios.get("https://pet-adoption-backend-ozox.onrender.com/api/pets");
     return response.data;
   } catch (error) {
     console.log(error);

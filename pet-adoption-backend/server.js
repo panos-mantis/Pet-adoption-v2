@@ -7,7 +7,7 @@ const petsRoutes = require('./routes/pets');
 const cors = require('cors');
 
 
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect("mongodb+srv://pngmantis:pngmantis@cluster0.otr3nqw.mongodb.net/petAdoption?retryWrites=true&w=majority", {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })

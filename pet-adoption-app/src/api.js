@@ -14,7 +14,7 @@ import axios from "axios"
  export const registerUser = async(userData)=>{
     //send request
     try{
-        const response = await axios.post("/users/register",userData)
+        const response = await axios.post("https://pet-adoption-backend-ozox.onrender.com/api/users/register",userData)
         console.log(response)
     }catch(error){
         console.log(error)
@@ -25,8 +25,7 @@ import axios from "axios"
  export const loginUser = async(userData)=>{
     //send request
     try{
-        const response = await axios.post("/users/login", userData);
-        console.log(axios.defaults.baseURL)
+        const response = await axios.post("https://pet-adoption-backend-ozox.onrender.com/api/users/login", userData);
         const { token } = response.data;
         localStorage.setItem("token", token); // Save the token in local storage
         console.log(response)
@@ -54,7 +53,7 @@ export const createPet = async (petData, token) => {
 // Get all pets
 export const getAllPets = async () => {
   try {
-    const response = await axios.get("/pets");
+    const response = await axios.get("https://pet-adoption-backend-ozox.onrender.com/api/pets");
     return response.data;
   } catch (error) {
     console.log(error);
@@ -65,7 +64,7 @@ export const getAllPets = async () => {
 // Get a pet by ID
 export const getPetById = async (id) => {
   try {
-    const response = await axios.get(`/pets/${id}`);
+    const response = await axios.get(`https://pet-adoption-backend-ozox.onrender.com/api/pets/${id}`);
     console.log(response);
     return response.data;
   } catch (error) {
@@ -78,7 +77,7 @@ export const getPetById = async (id) => {
 // Update a pet by ID (just for admins)
 export const updatePetById = async (id, petData, token) => {
   try {
-    const response = await axios.put(`/pets/${id}`, petData, {
+    const response = await axios.put(`https://pet-adoption-backend-ozox.onrender.com/api/pets/${id}`, petData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -93,7 +92,7 @@ export const updatePetById = async (id, petData, token) => {
 // Delete a pet by ID (just for admins)
 export const deletePetById = async (id, token) => {
   try {
-    const response = await axios.delete(`/pets/${id}`, {
+    const response = await axios.delete(`https://pet-adoption-backend-ozox.onrender.com/api/pets/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
@@ -108,7 +107,7 @@ export const deletePetById = async (id, token) => {
 // Get pets by species
 export const getPetsBySpecies = async (species) => {
   try {
-    const response = await axios.get(`/pets/species/${species}`);
+    const response = await axios.get(`https://pet-adoption-backend-ozox.onrender.com/api/pets/species/${species}`);
     console.log(response);
     return response.data;
   } catch (error) {
@@ -131,7 +130,7 @@ export const getCurrentUser = async () => {
         Authorization: `Bearer ${token}`,
       },
     };
-    const response = await axios.get('/users', config);
+    const response = await axios.get('https://pet-adoption-backend-ozox.onrender.com/api/users', config);
     
     return response.data.user;
     

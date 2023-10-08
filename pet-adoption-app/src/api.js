@@ -4,7 +4,7 @@ import axios from "axios"
 
 //All the requests happen at /api
 
-axios.defaults.baseURL = "https://pet-adoption-backend-ozox.onrender.com/api";
+/* axios.defaults.baseURL = "https://pet-adoption-backend-ozox.onrender.com/api"; */
 /* axios.defaults.baseURL = "http://localhost:4000/api"; */
 
 
@@ -39,7 +39,7 @@ axios.defaults.baseURL = "https://pet-adoption-backend-ozox.onrender.com/api";
 // Create a new pet (just for admins)
 export const createPet = async (petData, token) => {
   try {
-    const response = await axios.post("/pets", petData, {
+    const response = await axios.post("https://pet-adoption-backend-ozox.onrender.com/api/pets", petData, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
